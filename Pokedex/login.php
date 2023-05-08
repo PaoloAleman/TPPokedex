@@ -3,7 +3,7 @@ session_start();
 if(isset($_POST["enviar"])){
     if(isset($_POST["usuario"])=="Admin" && isset($_POST["contraseña"])=="ILoveMessi"){
         $_SESSION["validado"]=1;
-        header("Location: interno.php");
+        header("Location: internoAdmin.php");
         exit();
     }else{
         setcookie("seguridad","0",time()-6000);
