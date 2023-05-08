@@ -45,12 +45,11 @@
         }
     ?>
     </table>
-    <h2>Eliminar Pokemón</h2>
-
     <?php
      include_once ("eliminarPokemon.php");
      include_once ("agregarPokemon.php");
     ?>
+
 </main>
 </body>
 </html>

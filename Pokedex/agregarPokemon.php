@@ -1,5 +1,5 @@
 <h1>¡Agregar Pokemón!</h1>
-<form method="post" action="agregarPokemon.php" enctype="multipart/form-data">
+<form method="post" action="index.php" enctype="multipart/form-data">
     <label for="codigo">Código</label>
     <input type="number" name="codigo">
     <br><br>
@@ -49,11 +49,18 @@ if(isset($_POST["enviar"])) {
     $stmt->execute();
     $stmt->close();
 
-
+    header("Refresh:0");
+    crearArchivo();
 
     // Cerrar la conexión
     $conn->close();
 }
+
+    function crearArchivo(){
+        $nombre = $_POST["nombre"];
+        $nuevoArchivo=fopen("./archivosPokemones/".$nombre.".html","w") or die ("No se pudo crear el archivo");
+        fclose($nuevoArchivo);
+    }
 
     /*El siguiente método lo utilizo para mover el archivo
      a la carpeta imágenesPokemon dentro de la carpeta Pokedex. Debe retornarme una
