@@ -61,7 +61,7 @@ function mostrarLista($fila){
     echo "<td><img src='".$fila["imagen"]."' width='50px'></img>"." </td>";
     echo "<td><img src='".$fila["tipo"]."' width='50px'></img>"." </td>";
     echo "<td>".$fila["codigo"]." </td>";
-    echo "<td>".$fila["nombre"]." </td>";
+    echo "<td><a href='./archivosPokemones/".$fila["nombre"].".html'>Pikachu</a></td>";
     echo "</tr>";
 }
 
