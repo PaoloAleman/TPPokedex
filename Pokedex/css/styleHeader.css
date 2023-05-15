@@ -1,0 +1,128 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100px;
+    border: 1px solid black;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(128,20,161,1) 35%, rgba(24,0,42,1) 100%);}
+
+.divHeader{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#titulo{
+    color: #E0AAFF;
+    font-size: 70px;
+}
+
+#ingresarComoAdmin{
+    background: none;
+    border: 4px solid #E0AAFF;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+    color: #E0AAFF;
+    font-size: 17px;
+}
+
+#ingresarComoAdmin:hover{
+    border: 4px solid #10002B;
+    color: #10002B;
+    background:#E0AAFF ;
+    box-shadow:1px 1px 5px 3px #E0AAFF;
+
+}
+
+main {
+    bbackground: rgb(210, 135, 246);
+    background: linear-gradient(90deg, rgba(210, 135, 246, 1) 0%, rgba(161, 48, 219, 1) 34%, rgba(161, 48, 219, 1) 70%, rgba(210, 135, 246, 1) 100%);
+}
+
+#formularioBuscar{
+    text-align: center;
+}
+table {
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+tr, td{
+    border: 3px solid #10002B;
+    border-radius: 40px;
+    background: rgb(128,31,176);
+    background: linear-gradient(90deg, rgba(128,31,176,1) 0%, rgba(196,80,254,1) 52%, rgba(128,31,176,1) 100%);
+    height: 100px;
+    width: 300px;
+    text-align: center;
+    font-size: 30px;
+    color: #10002B;
+}
+
+tr, td> a{
+    text-decoration: none;
+    color: #10002B;
+}
+
+tr, td>form>input{
+    background: none;
+    border: none;
+    height: 100px;
+    width: 100%;
+    font-size: 30px;
+    color: #10002B;
+}
+
+tr, td>form>input:hover{
+    color: #E0AAFF;
+    background: rgb(65,13,91);
+    background: linear-gradient(90deg, rgba(65,13,91,1) 0%, rgba(135,27,191,1) 34%, rgba(135,27,191,1) 70%, rgba(65,13,91,1) 100%);
+    border-radius: 36px;
+}
+
+tr, td >img{
+    height: 80px;
+    width: 80px;
+}
+
+
+#formularioRedireccionar{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.link{
+    background: none;
+    border: 3px solid #10002B;
+    background: rgb(128,31,176);
+    background: linear-gradient(90deg, rgba(128,31,176,1) 0%, rgba(196,80,254,1) 52%, rgba(128,31,176,1) 100%);
+    border-radius: 60px;
+    height: 150px;
+    width: 300px;
+    cursor: pointer;
+    color: #10002B;
+    font-size: 25px;
+}
+
+.link:hover{
+    border: 4px solid #10002B;
+    color: #E0AAFF;
+    background: rgb(69,3,101);
+    background: linear-gradient(90deg, rgba(69,3,101,1) 0%, rgba(186,84,238,1) 52%, rgba(69,3,101,1) 100%);
+    box-shadow:1px 1px 10px 3px #10002B;
+}
+
+

@@ -1,10 +1,11 @@
+<link rel="stylesheet" href="css/styleAgregarPokemon.css">
 <h1>¡Agregar Pokemón!</h1>
-<form method="post" action="index.php" enctype="multipart/form-data">
+<form method="post" action="agregarPokemon.php" enctype="multipart/form-data">
     <label for="codigo">Código</label>
     <input type="number" name="codigo">
     <br><br>
     <label for="imagen">Imagen</label>
-    <input type="file" name="imagen">
+    <input type="file" name="imagen" accept="image/*">
     <br><br>
     <label for="nombre">Nombre</label>
     <input type="text" name="nombre">
@@ -19,9 +20,6 @@
     <br><br>
     <label for="descripcion">Descripción</label>
     <input type="text" name="descripcion">
-    <br><br>
-    <label for="datosExtras">Datos extras</label>
-    <input type="text" name="datosExtras">
     <br><br>
     <input type="submit" name="enviar">
 </form>
@@ -39,17 +37,16 @@ if(isset($_POST["enviar"])) {
     $codigo = $_POST["codigo"];
     $nombre = $_POST["nombre"];
     $imagen = moverArchivo();
+    $nombreImagen=$_FILES["imagen"]["name"];
     $tipo = transformarTipoAImagen($_POST["tipo"]);
+    $nombreTipo= $_POST["tipo"];
     $descripcion = $_POST["descripcion"];
-    $datosExtras = $_POST["datosExtras"];
 
-
-    $stmt = $conn->prepare("INSERT INTO pokemon (codigo, imagen, nombre, tipo, descripcion, datosExtras) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("isssss", $codigo, $imagen, $nombre, $tipo, $descripcion, $datosExtras);
+    $stmt = $conn->prepare("INSERT INTO pokemon (codigo, imagen, nombre, tipo, descripcion, nombreTipo, nombreImagen) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("issssss", $codigo, $imagen, $nombre, $tipo, $descripcion,$nombreTipo, $nombreImagen);
     $stmt->execute();
     $stmt->close();
 
-    header("Refresh:0");
     crearArchivo();
 
     // Cerrar la conexión

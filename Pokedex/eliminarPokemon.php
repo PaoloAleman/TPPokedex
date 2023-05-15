@@ -1,7 +1,7 @@
 <h2>Eliminar Pokemón</h2>
 <p>Ingrese el código del pokemón que desee eliminar de la pokedex</p>
 <div>
-    <form action="index.php" method="post">
+    <form action="eliminarPokemon.php" method="post">
         <label for="codigo">Código</label>
         <input type="number" name="codigo">
         <br><br>
@@ -21,8 +21,8 @@ if(isset($_POST["eliminar"])){
     mysqli_query($conn,$sql);
     eliminarArchivoPokemon();
 
-    header("Refresh:0");
-
+    header("Location: index.php");
+    exit();
 }
 
 function eliminarArchivoPokemon(){

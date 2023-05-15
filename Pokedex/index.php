@@ -1,26 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Pokedex</title>
-</head>
-<body>
-<header>
-    <div id="logo">
-        <img src="./logo/strawhat.png" alt="logo" width="100px">
-    </div>
-    <div>
-        <h1>Pokedex</h1>
-    </div>
-    <div>
-       <a href="login.php">Ingresar como administrador</a>
-    </div>
-</header>
+<?php
+    include_once ("header.php");
+?>
 <main>
-    <form action="" method="post">
+    <form action="" method="post" id="formularioBuscar">
         <input type="search" name="buscador" id="buscador" placeholder="Ingrese el nombre, tipo o número de pokemón">
         <input type="submit" name="buscar">
     </form>
@@ -45,11 +27,21 @@
         }
     ?>
     </table>
-    <?php
-     include_once ("eliminarPokemon.php");
-     include_once ("agregarPokemon.php");
-    ?>
+    <form action="index.php" method="post" id="formularioRedireccionar">
+        <input type="submit" name="agregarPokemon"  value="Agregar Pokemon" class="link">
+        <input type="submit" name="eliminarPokemon"  value="Eliminar Pokemon" class="link">
+        <input type="submit" name="editarPokemon"  value="Editar Pokemon" class="link">
+    </form>
 
+    <?php
+    if(isset($_POST["agregarPokemon"])){
+        header("Location: ./agregarPokemon.php");
+    }elseif (isset($_POST["eliminarPokemon"])){
+        header("Location: ./eliminarPokemon.php");
+    }elseif (isset($_POST["editarPokemon"])){
+        header("Location: ./editarPokemon.php");
+    }
+    ?>
 </main>
 </body>
 </html>
@@ -61,8 +53,17 @@ function mostrarLista($fila){
     echo "<td><img src='".$fila["imagen"]."' width='50px'></img>"." </td>";
     echo "<td><img src='".$fila["tipo"]."' width='50px'></img>"." </td>";
     echo "<td>".$fila["codigo"]." </td>";
-    echo "<td><a href='./archivosPokemones/".$fila["nombre"].".html'>Pikachu</a></td>";
+    echo "<td id='nombrePokemon'>
+            <form action='index.php' method='post'>
+                <input type='submit' name='pokemonElegido' value='".$fila["nombre"]."'>
+            </form>
+        </td>";
     echo "</tr>";
+
+    if(isset($_POST["pokemonElegido"])){
+        header("Location: ./archivosPokemones/".$fila["nombre"].".html");
+
+    }
 }
 
 
